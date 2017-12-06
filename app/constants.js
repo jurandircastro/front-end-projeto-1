@@ -3,7 +3,7 @@ angular.module('TVeManager')
 
 function httpRequest(url, method, data, $q, $http) {
   const deferred = $q.defer();
-  const baseUrl = 'http://2fb0b3c5.ngrok.io';
+  const baseUrl = 'http://localhost:3000';
 
   $http({
     method: method,
