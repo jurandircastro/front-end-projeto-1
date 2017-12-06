@@ -1,0 +1,193 @@
+<div class="scrollBarCadastroUser" style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; background: #eeeeee ;">
+<div data-ng-include="'views/components/navbar.html'"> </div>
+
+<div class="center-align paddingTopContainer">
+<h4 style="color:black;"><img class="" src="/assets/img/iconesPagina/user32.png" alt="..."> USUÁRIOS</a></h4>
+</div>
+
+
+
+<div class="container paddingTopContainer">
+  <div class="row">
+    <div class="col s12">
+      <div class="col s4 push-s1 ">
+            <a data-target="modalUser" id="newUserGroupBtn" class="waves-effect waves-light btn telaUsuarioBTN"><img class="imgCentered" src="/assets/img/add32.png" alt="..."> CRIAR GRUPO</a>
+        </div>
+
+      <div class="col s8 push-s1">
+        <nav>
+          <div class="nav-wrapper searchBar">
+
+              <div class="input-field">
+                  <input id="search" ng-model="search" name="search" type="search" required>
+                  <label for="search"><i class="material-icons">search</i></label>
+                  <i class="material-icons">close</i>
+              </div>
+
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="col s12">
+    <div class="col s3" ng-repeat="grupo in grupos | filter:search as results">
+      <div class="card scrollBar">
+        <div class="card-content">
+          <span class="card-title grey-text text-darken-4" > {{ grupo.group.name }}
+            <a href="" style="color:black;" ng-click="grupoAtual(grupo)" data-target="modalRemoverGrupo" <i class="material-icons right">delete</i></a>
+            <a href="" style="color:black;" data-target="modalAtualizarUser" <i class="material-icons right">mode_edit</i></a>
+          </span><br>
+          <li class="divider"></li>
+          <br>
+          <ul class="collection scrollBarCadastroUser" ng-repeat="usuario in grupo.users">
+            <li class="collection-item avatar">
+              <div class="userGroupCenter">
+                <img src="{{ usuario.image_path }}" alt class="circle">
+
+                <span class="title">{{ usuario.name }}</span></br>
+                <span class="title">{{ usuario.email }}</span>
+
+              </div>
+            </li>
+          </ul>
+        </div>
+       </div>
+    </div>
+</div>
+</div>
+
+
+</div>
+
+<div id="modalUser" class="modal modal-fixed-footer  ">
+  <div class="modal-content">
+    <h4 style="color: black;" class="centered">Novo Grupo</h4>
+    <li class="divider"></li>
+
+    <div class="container">
+      <div class='input-field'>
+          <input type='text' ng-model="grupo.name" id="campoNome" class="center-align" placeholder="Nome do grupo"/>
+      </div>
+    </div>
+
+    <div class="container">
+      <h5 style="color: black;" class="centered">Usuários</h5>
+      <li class="divider"></li>
+
+      <nav class="nav-wrapper userFormSearchBar">
+          <div class="input-field">
+              <input id="searchNome" ng-model="search" name="searchNome" placeholder="Nome ou Email" type="search" required>
+              <label for="searchNome"><i class="material-icons">search</i></label>
+              <i class="material-icons">close</i>
+          </div>
+      </nav>
+
+      <ul class="collection scrollBarCadastroUser" ng-repeat="usuario in usuarios | filter:search as results ">
+        <li class="collection-item avatar">
+          <div class="container">
+            <div class="row">
+              <div class="col s12">
+                <img src="{{ usuario.image_path }}" alt class="circle">
+
+                <div class="col s8 pull-s3">
+                    <span class="title">{{ usuario.name }}</span> </br>
+                    <span class="title">{{ usuario.email }}</span>
+                </div>
+
+                <div class="col s4 push-s1 ">
+                  <a ui-sref="grupos" ng-click="getSelect(usuario)" class="waves-effect waves-light btn btnAdicionarUser">Adicionar</a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <br><br>
+    </div>
+  </div>
+
+    <div class="modal-footer" style="z-index: 999;">
+      <a class="modal-action modal-close waves-effect waves-green btn-flat" ng-click="addGrupo()">Criar Grupo</a>
+      <a class="modal-action modal-close waves-effect waves-green btn-flat ">Cancelar</a>
+    </div>
+
+</div>
+
+<div id="modalRemoverGrupo" class="modal modalRemoverGrupo">
+    <div class="modal-content">
+      <h5 class="center-align"style="color:black;">Deseja excluir permanentemente esse projeto?</h5>
+      <li class="divider"></li>
+    </div>
+    <div class="modal-footer">
+      <div>
+      <a id="removerGrupoBtn" ng-click="excluiGrupo()" class="modal-action modal-close waves-effect waves-red btn-flat modal-close removerBtn" >Remover Grupo</a>
+      <a class="modal-action modal-close waves-effect waves-green btn-flat ">Cancelar</a>
+    </div>
+    </div>
+  </div>
+
+<!-- Modal Structure -->
+ <div id="modalAtualizarUser" class="modal modal-fixed-footer">
+   <div class="modal-content">
+     <h4 style="color: black;" class="centered">Editar grupo</h4>
+         <li class="divider"></li>
+     <div class="container">
+       <div class='input-field'>
+           <input type='text' ng-model="grupo.nomeGrupo" class="center-align" placeholder="Nome do grupo"/>
+       </div>
+     </div>
+
+     <div class="container">
+       <h5 style="color: black;" class="centered">Usuários</h5>
+       <li class="divider"></li>
+       <ul class="collection scrollBarCadastroUser" ng-repeat="usuario in usuarios | filter:search as results">
+         <li class="collection-item avatar">
+           <div class="container">
+             <div class="row">
+               <div class="col s12">
+                 <img src="{{  }}" alt class="circle">
+                 <div class="col s8 pull-s3">
+
+                     <span class="title">{{ usuario.nome }}</span></br>
+                      <span class="title">{{ usuario.email }}</span>
+
+                 </div>
+                 <div class="col s4 push-s1 ">
+                   <a ui-sref="grupos" ng-click="getSelect(usuario)" class="waves-effect waves-light btn btnAdicionarUser">Adicionar</a>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </li>
+       </ul>
+       <div>
+         <nav>
+             <div class="nav-wrapper userFormSearchBar">
+               <form>
+                 <div class="input-field">
+                     <input id="searchNome" ng-model="search" name="searchNome" placeholder="Nome ou Email" type="search" required>
+                     <label for="searchNome"><i class="material-icons">search</i></label>
+                     <i class="material-icons">close</i>
+                 </div>
+               </form>
+             </div>
+         </nav>
+       </div>
+     </div>
+   </div>
+   <div class="modal-footer">
+     <a class="modal-action modal-close waves-effect waves-green btn-flat" ng-click="addGrupo()">Confirmar Alterações</a>
+     <a class="modal-action modal-close waves-effect waves-green btn-flat ">Cancelar</a>
+
+   </div>
+ </div>
+<script>
+$(document).ready(function(){
+    $(".modal").modal();
+});
+</script>

@@ -1,0 +1,178 @@
+<div class="scrollBarCadastroUser" style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; background: #eeeeee ;">
+<div data-ng-include="'views/components/navbar.html'"> </div>
+
+<div class="center-align paddingTopContainer">
+<h4 style="color:black;"><img class="" src="/assets/img/iconesPagina/tv32.png" alt="..."> CONTEÚDO</a></h4>
+</div>
+
+<div class="container paddingTopContainer">
+  <div class="row">
+    <div class="col s12 ">
+      <div class="col s4 push-s2">
+          <a ui-sref="conteudo" id="btnOptions" class="waves-effect waves-light btn telaConteudoBTN bordaBTN"> ROTEIROS</a>
+      </div>
+      <div class="col s4 push-s1">
+        <a ui-sref="conteudoVideo" id="btnOptions" class="waves-effect waves-light btn telaConteudoBTN"> VÍDEOS</a>
+      </div>
+      <div class="col s4" >
+        <a ui-sref="conteudoAudio" id="btnOptions" style="background: #fbeb29!important;" class="waves-effect waves-light btn telaConteudoBTN"> ÁUDIOS</a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="row paddingTopContainer toLeft">
+    <div class="col s12">
+      <div class="col s8 pull-s1">
+        <a class="waves-effect waves-light btn telaConteudoTopicosBTN" style="width:655px;"> TÍTULO</a>
+      </div>
+
+      <div class="col s2 pull-s2">
+        <a class="waves-effect waves-light btn telaConteudoTopicosBTN" style="width:283px;"> ARQUIVOS</a>
+      </div>
+
+      <div class="col s2 pull-s1 ">
+        <a class="waves-effect waves-light btn telaConteudoTopicosBTN toRightComent" style="width:180px;"> COMENTÁRIOS</a>
+      </div>
+      </div>
+    </div>
+<div  ng-repeat="audio in audios">
+  <div class="row toLeft">
+    <div class="col s12" >
+      <div class="col s8 pull-s1 ">
+        <div class="toRight ">
+          <div class="col s12 ">
+            <a ng-click="audioAtual(audio)" ui-sref="conteudoAudioChat" class="waves-effect waves-light btn btnItensConteudo"  style="width:655px;">{{ audio.name }}</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s1 pull-s2 " >
+        <div class="toRight1">
+          <div class="col s1 pull-s1" >
+                <a data-target="modalAtualizarAudio" ng-click="audioAtual(audio)" class="waves-effect waves-light btn btnItensConteudo" style="width:90px!important;"><img class="imgCentered" src="/assets/img/iconesProjetos/audio24.png" alt="..."></a>
+            </div>
+          </div>
+          <div class="col s1 push-s11 ">
+            <a class="waves-effect waves-light btn btnItensConteudo" target="_blank"  type="application/octet-stream"  id="downloadLink" href="http://tve-manager-backend.jelasticlw.com.br/{{audio.path}}" style="width:90px!important;"><img class="imgCentered" src="/assets/img/iconesProjetos/download24.png" alt="..." download></a>
+          </div>
+          <div class="col s1 push-s12">
+            <a data-target="modalRemoverAudio" ng-click="audioAtual(audio)" class="waves-effect waves-light btn btnItensConteudo IconePraDireita"  style="width:90px!important;"><img class="imgCentered" src="/assets/img/iconesProjetos/delete24.png" alt="..."></a>
+          </div>
+        </div>
+        <div class="col s2 ">
+            <div class="col s12 ">
+              <a class="waves-effect waves-light btn btnItensConteudo"  style="width:180px;"> 1</a>
+            </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="row toLeft">
+      <div class="col s12" >
+        <div class="col s8 pull-s1 ">
+          <div class="row toRight ">
+            <div class="col s12 ">
+              <a data-target="modalAudio" class="waves-effect waves-light btn btnItensConteudo"  style="width:655px;"> + Novo Áudio</a>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+
+</div>
+</div>
+
+<div id="modalAudio" class="modal">
+  <div class="modal-content">
+  <h4 style="color: black;" class="centered">Novo Áudio</h4>
+  <li class="divider"></li>
+  <div class="container">
+    <div class="row">
+      <div class="col s12">
+        <div class='input-field'>
+          <br>
+            <div class="image-upload ">
+              <label for="file-input-audio">
+                  <img src="assets/img/audio.png" class="imgFormCentralizadaConteudo" method="post">
+              </label>
+            </div>
+          <br>
+        </div>
+        <br><br><br><br><br>
+
+        <div class="col s12">
+         <div class='input-field'>
+             <input type='text' class="center-align" name="nome" class="validate" ng-model="NovoAudio.name"  placeholder="Nome do Audio" ng-required="true"/>
+         </div>
+       </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer ">
+    <div>
+      <a class="modal-action modal-close waves-effect waves-green btn-flat modal-close" ng-click="novoAudio()" >Adicionar Áudio</a>
+    </div>
+  </div>
+</div>
+
+
+<div id="modalAtualizarAudio" class="modal">
+  <div class="modal-content">
+  <h4 style="color: black;" class="centered">Clique na imagem para selecionar o áudio</h4>
+  <li class="divider"></li>
+  <div class="container">
+    <div class="row">
+      <div class="col s12">
+        <div class='input-field'>
+          <br>
+          <form name="form">
+            <div class="button" ngf-select ng-model="file" name="file" ngf-pattern="'audio/*'"
+              ngf-accept="'audio/*'" ngf-max-size="10MB">  <img src="assets/img/audio.png" class="imgFormCentralizadaConteudo"></div>
+          </form>
+          <br>
+        </div>
+
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer ">
+    <div>
+      <a class="modal-action modal-close waves-effect waves-green btn-flat modal-close" ng-click="submit()" >Confirmar</a>
+    </div>
+  </div>
+</div>
+
+<div id="modalRemoverAudio" class="modal modalRemoverConteudo">
+  <div class="modal-content">
+    <h5 class="center-align"style="color:black;">Deseja excluir permanentemente esse audio?</h5>
+    <li class="divider"></li>
+  </div>
+  <div class="modal-footer">
+    <div>
+    <a id="RemoverAudioBTN" ng-click="deleteAudio()" class="modal-action modal-close waves-effect waves-red btn-flat modal-close removerBtn" >Remover Audio</a>
+    <a class="modal-action modal-close waves-effect waves-green btn-flat ">Cancelar</a>
+  </div>
+  </div>
+</div>
+<script>
+$(function(){
+    $("#upload_link").on('click', function(e){
+        e.preventDefault();
+        $("#upload:hidden").trigger('click');
+    });
+});
+
+$(document).ready(function(){
+    $(".modal").modal();
+});
+
+$(document).ready(function(){
+$('.modal-close').modal('close');
+});
+
+</script>

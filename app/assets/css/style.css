@@ -1,0 +1,891 @@
+/*-     TELA DE LOGIN   -*/
+
+.camposBox{
+  display: inline-block;
+  padding: 32px 48px 0px 48px;
+  border: 1px;
+  background-color: white!important;
+
+}
+.esquecerSenha{
+  float: right;
+  color: black;
+}
+
+.btnLogin{
+  background-color: #273140!important;
+}
+
+/*-     TELA PROJETO    -*/
+.boxContent{
+  width: 1200px;
+  height: 130px;
+  margin-top: 40px ;
+  background-color: white!important;
+}
+
+.logoutBtn:hover{
+  background-color: #c62828!important;
+}
+
+.calendarBtn:hover{
+  background-color: #212121!important;
+}
+
+.cardsToLeft{
+  right: 140px;
+}
+
+.cardIMGInfoBoxProjeto{
+  width: 128px;
+  height: 128px;
+  max-width: 128px;
+  max-height: 128px;
+}
+.cardsToRight{
+  left: 140px;
+}
+.cardIMGProjeto{
+  width: 410px;
+  height: 150px;
+}
+
+.boxItemsLeft{
+  right: 140px;
+}
+
+/*-     TELA INICIAL    -*/
+.centered{
+  text-align: center;
+}
+
+.telaInicialImgMaxWidthAndHeight{
+  max-width: 128px;
+  max-height: 128px;
+  margin-top: 40px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.telaInicialLogo{
+    margin-top: 50px;
+}
+h4,h5{
+  color: white;
+}
+.side-nav{
+    background-color: #273140!important;
+}
+.telaInicialBTN{
+  background-color: #273140!important;
+  height: 64px!important;
+  line-height:67px!important;
+}
+
+.addFileBTN{
+  background-color: #273140!important;
+  height: 65px!important;
+  line-height:67px!important;
+  margin-left: 20%;
+}
+.imgCentered{
+  top: 15%;
+  cursor:pointer;
+}
+
+.imgCenteredProjetos{
+  padding-left: 10px!important;
+}
+
+.imgCenteredItensNavBar{
+   margin-top:25px;
+   width: 32px!important;
+   height: 32px!important;
+   max-width: 32px;
+   max-height:32px;
+
+   display:inline-block;
+   vertical-align:top;
+}
+
+.searchBar{
+  background-color: #273140!important;
+}
+.modalTaman{
+  max-height: 800px;
+}
+.cardIMG{
+  width: 310px;
+  height: 150px;
+}
+.cardWidthAndHeight{
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.cardsList{
+  padding-top: 5%;
+}
+
+.btnAndSearchBar{
+    left: 12%!important;
+}
+
+.cardLeftAlign{
+  left: 39%!important;
+}
+
+.paddingTopContainer{
+  padding-top: 30px;
+}
+
+.modal.modal-fixed-footer{
+  width: 70%!important;
+}
+
+.modal-content{
+  height: 200%!important;
+}
+
+
+.modalRemoverProjeto{
+  width: 30%!important;
+  top: 35%!important;
+  left: 20%!important;
+}
+
+
+
+.modalRemoverProjetoUser{
+  width: 40%!important;
+  top: 35%!important;
+  left: 1%!important;
+}
+
+.removerBtn{
+  background-color: red!important;
+  color: white!important;
+}
+
+.image-upload > input
+{
+    display: none;
+}
+
+.imgFormCentralizada{
+  margin-left: 140px!important;
+  cursor:pointer;
+}
+
+.formPaddingTop{
+  padding-top: 25px!important;
+}
+
+.dropdownPaddingTop{
+  top: 63px!important;
+}
+
+.dropdownPaddingTopUser{
+  width: 15%!important;
+  top: 70px!important;
+}
+.dropdownPaddingAlarm{
+  width: 15%!important;
+  top: 74px!important;
+}
+
+.dropdownItems{
+  padding-left: 10px;
+}
+
+.iconsCenter{
+  padding-left: 20px;
+  padding-bottom: 12px;
+}
+
+.logoCenter{
+  padding-top: 5px;
+}
+
+.circularNavBar {
+   margin-top:5px;
+   width: 64px!important;
+   height: 64px!important;
+   max-width: 64px;
+   max-height:64px;
+   border-radius: 150px;
+   -webkit-border-radius: 150px;
+   -moz-border-radius: 150px;
+   border:3px solid white;
+   display:inline-block;
+   vertical-align:top;
+}
+
+.circularItensNav{
+  width: 24px!important;
+  height: 24px!important;
+  max-width: 24px;
+  max-height:24px;
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+  border:1px solid white;
+  display:inline-block;
+  vertical-align:top;
+}
+
+
+
+.dropdown-content a:hover {
+  background-color: #757575!important
+}
+
+#dropdownSideBar{
+  position: absolute;
+  z-index: 1111;
+  display: none;
+  width: 100% !important;
+}
+
+#dropdownProjeto{
+  z-index: 1111;
+  display: none;
+}
+
+/*-     TELA DE USUÁRIO    -*/
+
+.navColor{
+  background-color: #273140!important;
+  height: 115%!important;
+}
+
+.dropdownTaman{
+  width: 200px;
+}
+
+.dropdown-content li>a{
+  background-color: #273140!important;
+  color: white!important;
+}
+
+.scrollBar{
+  width: 295px;
+  height: 333px;
+  overflow: auto;
+}
+.scrollBarCadastroUser{
+  overflow:auto;
+}
+
+.btnAdicionarUser{
+  background-color: #273140!important;
+  top: 30px!important;
+}
+.telaUsuarioBTN{
+  background-color: #273140!important;
+  height: 65px!important;
+  line-height:67px!important;
+  left: 45px;
+}
+
+.formTelaUsuarioBTN{
+  background-color: #273140!important;
+  height: 65px!important;
+  line-height:67px!important;
+  margin-top: 10px;
+}
+
+.formTelaUsuarioBox{
+  padding-top: 5px;
+  padding-bottom: 25px;
+}
+
+.userFormSearchBar{
+  background-color: #273140!important;
+  margin-top: 10px;
+}
+
+.userGroupCenter{
+  padding-top: 10px;
+}
+
+/*-     TELA PROJETO    -*/
+
+.cardName{
+  padding-top: 7px!important;
+  padding-bottom: 0px!important;
+  text-align: center;
+}
+
+
+/*-     TELA COMUNICAÇÃO    -*/
+.modalInFront{
+  z-index: 9999!important;
+}
+.panel {
+    box-shadow: 0 2px 0 rgba(0,0,0,0.075);
+    border-radius: 0;
+    border: 0;
+    margin-bottom: 24px;
+}
+.panel .panel-heading, .panel>:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.panel-heading {
+    position: relative;
+    height: 50px;
+    padding: 0;
+    border-bottom:1px solid #eee;
+}
+.panel-control {
+    height: 100%;
+    position: relative;
+    float: right;
+    padding: 0 15px;
+}
+.panel-title {
+    font-weight: normal;
+    padding: 0 20px 0 20px;
+    font-size: 1.416em;
+    line-height: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.panel-control>.btn:last-child, .panel-control>.btn-group:last-child>.btn:first-child {
+    border-bottom-right-radius: 0;
+}
+.panel-control .btn, .panel-control .dropdown-toggle.btn {
+    border: 0;
+}
+.nano {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.nano>.nano-content {
+    position: absolute;
+    overflow: scroll;
+    overflow-x: hidden;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.pad-all {
+    padding: 15px;
+
+}
+
+.media-block .media-left {
+    display: block;
+    float: left;
+}
+.img-sm {
+    width: 64px;
+    height: 64px;
+}
+
+.pad-hor {
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
+.speech {
+    position: relative;
+    background-color: #26313F;
+    color: white;
+    display: inline-block;
+    border-radius: 0;
+    padding: 12px 20px;
+}
+.speech:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 0;
+    top: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-right: 7px solid #26313F;
+    margin: 15px 0 0 -6px;
+}
+
+.speech .media-heading {
+    font-size: 1.2em;
+    display: block;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+
+}
+
+.textAreaWidth{
+  width: 80%!important;
+}
+
+.btnChat{
+    background-color: #26313F !important;
+    height: 65px!important;
+}
+
+.paddingTopBtnProjetos{
+  top:20px!important;
+}
+
+.sidenavTamanho{
+  top: 212px!important;
+  left: 156px!important;
+  padding-top: 0px;
+  height: 417px!important;
+  max-height: 417px;
+}
+
+.chatTamanho{
+  padding-top: 50px!important;
+  padding-left: 150px!important;
+}
+
+.searchBarColor{
+    background-color: #26313F !important;
+}
+
+.TopicoPaddingTop{
+  padding-top: 30px;
+}
+
+.quebrarLinha{
+  word-break: break-all;
+}
+
+
+.navItem{
+  margin: 10px 30px 0 0;
+}
+
+/** TELA GESTÃO**/
+.scrollBarGestao{
+  overflow-x: auto;
+  overflow-y: auto;
+
+}
+
+.telaGestaoTopicosBTN{
+  background-color: #26313F !important;
+  height: 40px!important;
+  width: 100%;
+  line-height:45px!important;
+  font-size: 13px!important;
+}
+
+.telaGestaoADDItem{
+  background-color: white !important;
+  color: black!important;
+  height: 40px!important;
+  width: 250px!important;
+  line-height:38px!important;
+  font-size: 12px!important;
+
+}
+
+.btnItensGestao{
+  background-color: #eeeeee!important;
+  color: black!important;
+  height: 40px!important;
+  width: 100%!important;
+  line-height:45px!important;
+  font-size: 10px!important;
+}
+
+.paddingBotContainer{
+  padding: 10px 10px 0 5px!important;
+  }
+
+  .boxContentGestao{
+    height: 350px;
+    margin-top: 20px;
+    overflow:hidden;
+  }
+.boxContentgGestaoAtividade{
+  height: 350px;
+  margin-top: 20px ;
+}
+
+.btnTopicosGestaoDisabled{
+  background-color: #273140!important;
+  font-size: 13px!important;
+  width:100%;
+  padding: 0 !important;
+}
+
+.btnTopicosGestao{
+  background-color: #e0e0e0!important;
+  color: black!important;
+  font-size: 10px!important;
+  float: left;
+  width: 100%;
+  padding: 0 !important;
+}
+
+.btnTopicosGestaoConfirm{
+  background-color: #e0e0e0!important;
+  color: black!important;
+  font-size: 10px!important;
+  float: left;
+  width: 100%;
+  padding: 0 !important
+}
+
+.btnTopicosGestaoConfirm:active{
+  background-color: #273140!important;
+  color: yellow!important;
+}
+
+.addAtividadeBTNLeft{
+  background-color: black!important;
+  color: white!important;
+  height: 40px!important;
+  line-height:40px!important;
+  right: 40px;
+}
+
+.addAtividadeBTNRight{
+  background-color: #273140!important;
+  height: 40px!important;
+  line-height:40px!important;
+  left: 90px;
+}
+
+.footer{
+    text-align: center ;
+    font-family: verdana ;
+    font-size: 13px!important;
+}
+
+.tableTamanh{
+  width: 1000px!important;
+  margin-left: 50px!important;
+}
+
+.selectField{
+color: black!important;
+}
+
+/**TELA CONTEUDO**/
+
+.telaConteudoBTN{
+  background-color: white!important;
+  color: black!important;
+  height: 60px!important;
+  line-height:55px!important;
+  width: 170px;
+}
+
+
+
+.telaConteudoTopicosBTN{
+  background-color: #26313F !important;
+  height: 50px!important;
+  line-height:55px!important;
+}
+
+.toLeft{
+  margin-left: 15%!important;
+}
+
+.toLeftVideo{
+  margin-left: 5%!important;
+}
+
+.toLeftDownloadAprovação{
+  margin-left: 3%!important;
+}
+
+.paddingTopContainerGestao{
+  padding-top: 60px;
+}
+
+.paddingTopContainerGestaoItens{
+  margin-top: 8px;
+}
+
+.btnItensConteudo{
+  background-color: white!important;
+  color: black!important;
+  font-size: 15px!important;
+  display: block;
+  width: 100%;
+  padding: 0 !important
+}
+
+.files-table td, .files-table tr, .files-table th {padding: 5px 5px}
+
+#btnOptions{
+  border: 2px solid black;
+}
+
+.toRight{
+  margin-left: -1.5%!important;
+}
+
+.toRightGestaoBox{
+  margin-left: -4%!important;
+}
+
+.toRight1{
+    margin-left: -7%!important;
+}
+
+.toRightComent{
+    margin-left: 6%!important;
+}
+
+
+/**TELA APROVAÇÃO**/
+
+.toLeftAprovacao{
+  margin-left: 32%!important;
+}
+
+.toRightGestao{
+  margin-left: -2%!important;
+}
+
+.toRight1Gestao{
+    margin-left: -8%!important;
+}
+
+.containerToLeft{
+    padding-left: 35px!important;
+}
+
+.boxContentTelaJuridico{
+  background-color: #26313F !important;
+  width: 270px;
+  height: 450px;
+  overflow-x: hidden;
+  margin-top:-3%;
+}
+
+#TitulooCPBeCRT{
+  width: 550px;
+  right: 65px;
+  bottom: 40px;
+}
+
+#CPB{
+  width: 250px;
+  left: 10px!important;
+}
+
+#CRT{
+  width: 250px;
+  left: 9px!important;
+}
+
+
+.telaJuridicoTopicosBTN{
+  background-color: #26313F !important;
+  height: 40px!important;
+  line-height:45px!important;
+  font-size: 12px!important;
+  display: block !important;
+  padding: 0 !important;
+}
+
+.btnItensJuridico{
+  background-color: white!important;
+  color: black!important;
+  font-size: 12px!important;
+  float: left;
+  display: block;
+  width: 100%;
+  padding: 0 !important;
+}
+
+.btnItensJuridicoText{
+  background-color: white!important;
+  color: black!important;
+  width: 100%;
+  font-size: 12px!important;
+  float: left;
+  padding-left: 13px!important;
+}
+
+.imgFormCentralizadaConteudo{
+  margin-left: 190px!important;
+}
+
+.imgFormCentralizadaAudioChat{
+  margin-left: 50%!important;
+  margin-top: 15%!important;
+}
+
+.modalRemoverConteudo{
+  top: 35%!important;
+}
+
+.telaJuridicoBTN{
+  background-color: #273140!important;
+  height: 64px!important;
+  width: 220px!important;
+  line-height:67px!important;
+  right: 20px!important;
+
+}
+
+.ProjetosList{
+  margin-right: 700px!important;
+  padding-top: 5px!important;
+  width: 200px!important;
+}
+
+.dropdownPaddingTopProjetos{
+  top: 74px!important;
+    width: 200px!important;
+}
+
+.boxContentTelaComunicacao{
+  background-color: #26313F !important;
+  padding: 20px;
+  max-height: 420px!important;
+
+overflow-y: auto!important;
+}
+
+.boxContainerTelaPerfil{
+  width: 1200px;
+  height: 400px;
+  margin-top: 40px ;
+}
+
+.profileBTN{
+    text-align:center;
+}
+
+.profileIMG{
+  margin-top: 10%!important;
+}
+
+.profileFotoBTN{
+  margin-top: 30px!important;
+  margin-left: 60px!important;
+}
+
+.boxContainerFotoPerfil{
+  width: 350px;
+  height: 300px;
+  margin-top: 40px ;
+}
+
+.telaComunicacaoBTN{
+  background-color: #273140!important;
+  height: 64px!important;
+  line-height:67px!important;
+  width: 100%!important;
+}
+
+.circular {
+   width: 128px!important;
+   height: 128px!important;
+   border-radius: 150px;
+   -webkit-border-radius: 150px;
+   -moz-border-radius: 150px;
+   border:3px solid white;
+   cursor:pointer;
+}
+
+
+.circularChat {
+   width: 64px!important;
+   height: 64px!important;
+   max-width: 64px!important;
+   max-height: 64px!important;
+   border-radius: 150px;
+}
+
+.IconePraDireita{
+  left: 70px!important;
+}
+
+.chatConteudoTamanho{
+  padding-top: 50px!important;
+  padding-left: 150px!important;
+}
+
+.boxContentChatConteudo{
+  margin-top: 50px!important;
+  background-color: white;
+  width: 920px;
+  height: 515px;
+  overflow: auto;
+}
+
+.chatConteudoPraDireita{
+  margin-left: 120px!important;
+}
+
+.videogular-container {
+    width: 100%;
+    height: 320px;
+    margin: auto;
+    overflow: hidden;
+}
+
+
+@media (min-width: 1200px) {
+    .videogular-container {
+        width: 912px;
+        height: 515px;
+    }
+
+    .videogular-container.audio {
+        width: 970px;
+        height: 40px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .videogular-container {
+        width: 940px;
+        height: 528.75px;
+    }
+
+    .videogular-container.audio {
+        width: 940px;
+        height: 50px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .videogular-container {
+        width: 728px;
+        height: 409.5px;
+    }
+
+    .videogular-container.audio {
+        width: 728px;
+        height: 50px;
+    }
+}
+
+.seekBase {
+  height: 30px;
+  width: 90%;
+  border: 1px solid #cccccc;
+}
+.seekLoad {
+	height: 30px;
+  width: 0;
+  background-color: #E0EAF1;
+}
+
+li {
+	cursor: pointer;
+}

@@ -1,0 +1,321 @@
+
+<div class="scrollBarCadastroUser" style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; background: #eeeeee ;">
+<div data-ng-include="'views/components/navbar.html'"> </div>
+
+<div class="center-align paddingTopContainer">
+<h4 style="color:black;"><img class="" src="/assets/img/iconesPagina/gestao32.png" alt="..."> GESTÃO</a></h4>
+</div>
+
+<div class="">
+    <div class="row">
+      <div class="col s12 ">
+        <div class="col s7">
+          <div class="z-depth-1 row boxContentGestao scrollBarGestao ">
+          <table class="responsive-table" style="table-layout: fixed; width: 100%">
+          <col style="width:33.3%">
+          <col style="width:33.3%">
+          <col style="width:33.3%">
+              <tr>
+                <td ng-repeat="gestao in gestaos" style="vertical-align:top;">
+                  <a class="waves-effect waves-light btn telaGestaoTopicosBTN">{{gestao.management.name}}</a>
+                  <div class="paddingTopContainerGestaoItens">
+                      <a class="waves-effect waves-light btn btnItensGestao paddingTopContainerGestaoItens" ng-click="itemAtual(item)" ng-repeat="item in gestao.itens" >
+                        <img src="assets/img/gestaoIcons/{{item.percentage}}.png" alt="" class="responsive-img imgCentered "> {{item.name}} - {{item.end_date}}
+                      </a>
+                  </div>
+                  <div class="paddingTopContainerGestaoItens">
+                    <a class="waves-effect waves-light btn btnItensGestao  " data-target="modalAddAtividade" ng-click="gestaoAtual(gestao)"> + Nova Atividade</a>
+                  </div>
+                </td>
+              </tr>
+          </table>
+
+           <br><br><br><br><br>
+
+           <div class="footer">
+                <div class="col s12 paddingTopContainer">
+                  <div class="col s3 paddingTopContainer ">
+                    <th ><a data-target="modalAddItem" id="btnOptions" class="waves-effect waves-light btn telaGestaoADDItem"> Novo Item</a></th>
+                  </div>
+
+                  <div class="col s3 push-s2" style="width:120px;">
+                    <p><img class="imgCentered" src="/assets/img/GestaoIcons/red16.png" alt="..."> 0% - 35%</p>
+                  </div>
+
+                  <div class="col s3 push-s2 " style="width:120px;">
+                    <p><img class="imgCentered" src="/assets/img/GestaoIcons/yellow16.png" alt="..."> 35% - 75%</p>
+                  </div>
+
+                  <div class="col s3 push-s2" style="width:130px;" >
+                    <p><img class="imgCentered" src="/assets/img/GestaoIcons/green16.png" alt="..."> 75% - 100%</p>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+          <div class="col s5" ng-show="clickItem">
+            <div class="z-depth-1 boxContentgGestaoAtividade">
+              <div class="">
+                <div class="row" style="padding-top:15px">
+                  <div class="col s2">
+                        <a  class="waves-effect waves-light btn btnTopicosGestaoDisabled"><i class="large material-icons ">done</a></i>
+                  </div>
+                  <div class="col s6">
+                        <a class="waves-effect waves-light btn btnTopicosGestaoDisabled">Atividades</a>
+                  </div>
+                  <div class="col s2">
+                        <a  class="waves-effect waves-light btn btnTopicosGestaoDisabled"><i class="large material-icons ">assignment_ind</a></i>
+                  </div>
+                  <div class="col s2" >
+                        <a class="waves-effect waves-light btn btnTopicosGestaoDisabled"><i class="large material-icons">schedule</a></i>
+                  </div>
+                </div>
+
+                <div class="row" ng-repeat="atividade in atividades">
+                  <div class="col s2" ng-show="atividade.activity.done">
+                        <a  class="waves-effect btn btnTopicosGestaoConfirm" style="color: green!important;" ng-click="atividadeFinalizada(atividade)" ><i class="large material-icons ">done</a></i>
+                  </div>
+                  <div class="col s2" ng-show="!atividade.activity.done">
+                        <a  class="waves-effect btn btnTopicosGestaoConfirm" style="color: red!important;" ng-click="atividadeFinalizada(atividade)"><i class="large material-icons ">close</a></i>
+                  </div>
+
+                  <div class="col s6">
+                        <a class="waves-effect waves-light btn btnTopicosGestao"> {{ atividade.activity.name }} </a>
+                  </div>
+                  <div class="col s2">
+                        <a  class="waves-effect waves-light btn btnTopicosGestao"> {{ atividade.group.name }} </a>
+                  </div>
+                  <div class="col s2" >
+                        <a class="waves-effect waves-light btn btnTopicosGestao">{{ atividade.activity.end_day}}</a>
+                  </div>
+                </div>
+
+
+                <div class="row">
+                  <div class="col s12">
+                        <a data-target="modalAddAtividadeInAtividade" class="waves-effect waves-light btn btnTopicosGestao" style="width:100%;">+ Nova Atividade</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div gantt data=data headers="['month','days']">
+  <gantt-table></gantt-table>
+  <gantt-tooltips></gantt-tooltips>
+</div>
+</div>
+
+<div id="modalAddItem" class="modal">
+  <div class="modal-content ">
+    <h4 style="color: black;" class="centered">Novo Item</h4>
+    <li class="divider"></li>
+      <div class="container">
+        <div class="row">
+          <div class="col s12">
+            <div class="col s12">
+              <form name="gestaoForm">
+                <div class='input-field'>
+                    <input type='text' class="center-align" name="nome" ng-model="gestao.name" class="validate" placeholder="Nome do item" ng-required="true"/>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="modal-footer ">
+    <div>
+      <a class="modal-action modal-close waves-effect waves-red btn-flat modal-close" ng-click="addGestao()" >Adicionar Item</a>
+      <a class="modal-action modal-close waves-effect waves-green btn-flat" ng-click="cancelarAddGestao()">Cancelar</a>
+    </div>
+  </div>
+</div>
+
+<div id="modalAddAtividade" class="modal">
+      <div class="modal-content ">
+        <h4 style="color: black;" class="centered">Nova Atividade</h4>
+        <li class="divider"></li>
+          <div class="container">
+            <div class="row">
+              <div class="col s12">
+                <div class="col s12">
+                  <form name="itemForm">
+                    <div class='input-field'>
+                        <input type='text' class="center-align" name="nome" ng-model="item.name" class="validate" placeholder="Nome do item" ng-required="true"/>
+                    </div>
+                  </div>
+                  <h5 style="color: black;" class="centered">Data de inicio</h5>
+                  <div class="col s12">
+                    <div class='input-field'>
+                      <input type="date" placeholder="Data de entrega" name="dataDeEntrega" ng-model="item.start_date" id="myInicioCalendarBtn" class="datepicker center-align" ng-required="true">
+                    </div>
+                  </div>
+                  <h5 style="color: black;" class="centered">Data de entrega</h5>
+                  <div class="col s12">
+                    <div class='input-field'>
+                      <input type="date" placeholder="Data de entrega" name="dataDeEntrega" ng-model="item.end_date" id="myEntregaCalendarBtn" class="datepicker center-align" ng-required="true">
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer ">
+        <div>
+          <a class="modal-action modal-close waves-effect waves-red btn-flat modal-close" ng-click="addItem()" >Adicionar Atividade</a>
+          <a class="modal-action modal-close waves-effect waves-green btn-flat" ng-click="cancelarAddItem()">Cancelar</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="modalAddAtividadeInAtividade" class="modal">
+          <div class="modal-content ">
+            <h4 style="color: black;" class="centered">Nova Atividade</h4>
+            <li class="divider"></li>
+              <div class="container">
+                <div class="row">
+                  <div class="col s12">
+
+                    <div class="col s12">
+                      <form name="atividadeForm">
+
+                        <div class='input-field'>
+                            <input type='text' class="center-align" name="nome" ng-model="atividade.name" class="validate" placeholder="Nome da atividade" ng-required="true"/>
+                          </div>
+                      </div>
+
+                        <br>  <br>  <br>  <br>  <br>
+                      <li class="divider"></li>
+                      <h5 style="color: black;" class="centered">Data de inicio</h5>
+                      <div class="col s12">
+                        <div class='input-field'>
+                            <input type='date'  placeholder="Data de inicio" class="datepicker center-align" ng-model="atividade.start_date" name="nome" class="validate"  ng-required="true"/>
+                        </div>
+                      </div>
+
+
+                    <h5 style="color: black;" class="centered">Data de entrega</h5>
+                      <div class="col s12">
+
+                        <div class='input-field'>
+                            <input type='date'  placeholder="Data de término" class="datepicker center-align" ng-model="atividade.end_date" name="nome" class="validate"  ng-required="true"/>
+                        </div>
+                      </div>
+                    </form>
+                        <br>  <br>  <br>  <br>  <br>
+                        <h4 style="color: black;" class="centered">Grupos</h4>
+                        <li class="divider"></li>
+
+                        <nav class="nav-wrapper userFormSearchBar">
+                            <div class="input-field">
+                                <input id="searchNome" ng-model="search" name="searchNome" placeholder="Nome ou Email" type="search" required>
+                                <label for="searchNome"><i class="material-icons">search</i></label>
+                                <i class="material-icons">close</i>
+                            </div>
+                        </nav>
+
+                    <ul class="collection scrollBarCadastroUser" ng-repeat="grupo in grupos | filter:searchGrupo as results">
+                      <li class="collection-item avatar">
+                        <div class="container">
+                          <div class="row">
+                            <div class="col s12">
+
+                              <div class="col s8 pull-s3">
+                                  <span class="title">{{ grupo.group.name }}</span> </br>
+                              </div>
+
+                              <div class="col s4 push-s1 ">
+                                <a ui-sref="gestao" ng-click="grupoSelect(grupo)" ng-disabled="booleanGrupo" class="waves-effect waves-light btn btnAdicionarUser">Adicionar</a>
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="modal-footer ">
+            <div>
+              <a class="modal-action modal-close waves-effect waves-red btn-flat modal-close" ng-click="addAtividade()">Adicionar Atividade</a>
+              <a class="modal-action modal-close waves-effect waves-green btn-flat" ng-click="cancelarAddAtividade()">Cancelar</a>
+            </div>
+          </div>
+        </div>
+
+    <script>
+      $(document).ready(function(){
+          $(".modal").modal();
+      });
+
+      $(document).ready(function(){
+      $('.modal-close').modal('close');
+      });
+
+      $(document).ready(function() {
+        $('select').material_select();
+      });
+
+
+      (function (factory) {
+          if (typeof define === 'function' && define.amd) {
+              define(['moment'], factory); // AMD
+          } else if (typeof exports === 'object') {
+              module.exports = factory(require('../moment')); // Node
+          } else {
+              factory(window.moment); // Browser global
+          }
+      }(function (moment) {
+          return moment.defineLocale('pt-br', {
+              months : 'Janeiro_Fevereiro_Março_Abril_Maio_Junho_Julho_Agosto_Setembro_Outubro_Novembro_Dezembro'.split('_'),
+              monthsShort : 'Jan_Fev_Mar_Abr_Mai_Jun_Jul_Ago_Set_Out_Nov_Dez'.split('_'),
+              weekdays : 'Domingo_Segunda-feira_Terça-feira_Quarta-feira_Quinta-feira_Sexta-feira_Sábado'.split('_'),
+              weekdaysShort : 'Dom_Seg_Ter_Qua_Qui_Sex_Sáb'.split('_'),
+              weekdaysMin : 'dom_2ª_3ª_4ª_5ª_6ª_sáb'.split('_'),
+              longDateFormat : {
+                  LT : 'HH:mm',
+                  L : 'DD/MM/YYYY',
+                  LL : 'D [de] MMMM [de] YYYY',
+                  LLL : 'D [de] MMMM [de] YYYY [às] LT',
+                  LLLL : 'dddd, D [de] MMMM [de] YYYY [às] LT'
+              },
+              calendar : {
+                  sameDay: '[Hoje às] LT',
+                  nextDay: '[Amanhã às] LT',
+                  nextWeek: 'dddd [às] LT',
+                  lastDay: '[Ontem às] LT',
+                  lastWeek: function () {
+                      return (this.day() === 0 || this.day() === 6) ?
+                          '[Último] dddd [às] LT' : // Saturday + Sunday
+                          '[Última] dddd [às] LT'; // Monday - Friday
+                  },
+                  sameElse: 'L'
+              },
+              relativeTime : {
+                  future : 'em %s',
+                  past : '%s atrás',
+                  s : 'segundos',
+                  m : 'um minuto',
+                  mm : '%d minutos',
+                  h : 'uma hora',
+                  hh : '%d horas',
+                  d : 'um dia',
+                  dd : '%d dias',
+                  M : 'um mês',
+                  MM : '%d meses',
+                  y : 'um ano',
+                  yy : '%d anos'
+              },
+              ordinal : '%dº'
+          });
+      }));
+
+      </script>

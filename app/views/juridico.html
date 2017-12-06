@@ -1,0 +1,255 @@
+<div class="scrollBarCadastroUser" style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; background: #eeeeee ;">
+<div data-ng-include="'views/components/navbar.html'"> </div>
+
+<div class="center-align paddingTopContainer">
+<h4 style="color:black;"><img class="" src="/assets/img/iconesPagina/juridico32.png" alt="..."> JURÍDICO</a></h4>
+</div>
+
+<div class="paddingTopContainerGestao containerToLeft">
+  <div class="row " >
+    <div class="col s12">
+      <div class="col s3">
+        <div class="z-depth-1 row boxContentTelaJuridico scrollBar ">
+            <div class="container">
+              <div class="row">
+              <div class="col s12">
+                <ul class="nav">
+                  <li class="nav-header " >
+                      <div class="input-group">
+                            <nav>
+                              <div class="nav-wrapper searchBarColor telaJuridicoBTN">
+                                <form>
+                                  <div class="input-field ">
+                                      <input  id="search" type="search" required>
+                                      <label for="search" ><i class="material-icons">search</i></label>
+                                      <i class="material-icons">close</i>
+                                  </div>
+                                </form>
+                              </div>
+                            </nav>
+                      </div>
+                  </li>
+
+                    <div ng-repeat="topico in topicos | filter:search as results">
+                      <br>
+                      <a class="waves-effect waves-light btn telaJuridicoBTN" ng-click="topicoAtual(topico); click();" style="color:white;">{{ topico.name }}</a>
+                    </div>
+                    <br>
+                    <a ui-sref="juridicoCPBeCRT" class="waves-effect waves-light btn telaJuridicoBTN" ng-click="topicoAtual(topico)" style="color:white;">CPB e CRT</a>
+
+                    <li class="nav-header" >
+                        <div class="input-group">
+                          <br>
+                          <a data-target="modalJuridico" id="newTopicoBtn" ng-required="true" class="waves-effect waves-light btn telaJuridicoBTN"><img class="imgCentered" src="/assets/img/add32.png" alt="...">Adicionar</a>
+                        </div>
+                    </li>
+                    <br>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div ng-show="juridicoCheck col s9">
+        <div class="col s9">
+        <table class="files-table" style="table-layout: fixed; width: 100%; margin-left:-30px!important; ">
+        <col style="width:40%">
+        <col style="width:10%">
+        <col style="width:30%">
+        <col style="width:10%">
+        <col style="width:12%">
+        <col style="width:10%">
+        <col style="width:10%">
+          <tr >
+              <th data-field="titulo"><a  class="waves-effect waves-light btn telaJuridicoTopicosBTN" style=" bottom:15px!important;"> TÍTULO</a></th>
+              <th data-field="tipo"><a class="waves-effect waves-light btn telaJuridicoTopicosBTN " style="bottom:15px!important;"> TIPO</a></th>
+              <th data-field="obs"><a class="waves-effect waves-light btn telaJuridicoTopicosBTN"style="bottom:15px!important;"> OBSERVAÇÕES</a></th>
+              <th data-field="anexo"><a  class="waves-effect waves-light btn telaJuridicoTopicosBTN"style="bottom:15px!important;">ANEXOS</a></th>
+              <th data-field="status"><a class="waves-effect waves-light btn telaJuridicoTopicosBTN"style="bottom:15px!important;"> DOWNLOAD</a></th>
+              <th colspan="2" data-field="alarm"><a class="waves-effect waves-light btn telaJuridicoTopicosBTN"style="bottom:15px!important;"> ALARME</a></th>
+          </tr>
+          <tbody>
+
+          <tr ng-repeat="juridico in juridicos" style="vertical-align:top;">
+            <td><a class="waves-effect waves-light btn btnItensJuridico"> {{juridico.name}}</a></td>
+            <td><a class="waves-effect waves-light btn btnItensJuridico"> {{juridico.type}}</a></td>
+            <td><a  class="waves-effect waves-light btn btnItensJuridico">{{juridico.observations}}</a></td>
+            <td><a data-target="modalAnexo"  ng-click="getJuridicoAtual(juridico)" class="waves-effect waves-light btn btnItensJuridico"><img class="imgCentered" src="/assets/img/iconesProjetos/clip24.png" alt="..."></a></td>
+            <td><a class="waves-effect waves-light btn btnItensConteudo" href="http://tve-manager-backend.jelasticlw.com.br/{{juridico.file_path}}" ><img class="imgCentered" src="/assets/img/iconesProjetos/download24.png" class="responsive-img imgCentered" alt="..." download></a></td>
+            <td><a data-target="modalData"  ng-click="juridicoAtual(juridico)" class="waves-effect waves-light btn btnItensJuridico">20/05/17</a></td>
+            <td><a data-target="modalData"  ng-click="juridicoAtual(juridico)" class="waves-effect waves-light btn btnItensJuridico">12:12</a></td>
+
+          </tr>
+
+          <th>
+            <a data-target="modalJuridicoItensCPBeCRT" id="Titulo" class="waves-effect waves-light btn btnItensJuridico"> + Adicionar Novo</a>
+          </th>
+          </tbody>
+
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+</div>
+
+<div id="modalJuridico" class="modal modalInFront">
+    <div class="modal-content">
+      <div class="container">
+          <div class="row">
+            <h4 style="color: black;" class="centered">Novo Tópico</h4>
+            <li class="divider"></li>
+            <div class="col s12">
+              <div class='input-field'>
+                  <input type='text' ng-model="topicoJuridico.name" class="center-align" class="form-control" ng-required="true" placeholder="Nome do tópico"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer modalInFront">
+        <div>
+        <a id="modalTopico" ng-click="addTopico()" class="modal-action modal-close waves-effect waves-red btn-flat modal-close "> Adicionar Tópico</a>
+      </div>
+      </div>
+    </div>
+
+  <div id="modalJuridicoItens" class="modal modalInFront">
+    <div class="modal-content">
+      <div class="container">
+          <div class="row">
+            <h4 style="color: black;" class="centered">Novo Item</h4>
+            <li class="divider"></li>
+            <div class="col s12">
+              <div class='input-field'>
+                  <input type='text' class="center-align" ng-model="juridico.name" class="form-control" ng-required="true" placeholder="Título"/>
+              </div>
+            </div>
+          </div>
+          <div class="col s12">
+            <div class='input-field'>
+                <input type='text' class="center-align" ng-model="juridico.type" class="form-control" ng-required="true" placeholder="Tipo"/>
+            </div>
+          </div>
+          <div class="col s12">
+            <div class='input-field'>
+                <input type='text' class="center-align" ng-model="juridico.observations" class="form-control" ng-required="true" placeholder="Observações"/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer modalInFront">
+        <div>
+        <a id="modalTopico" ng-click="addJuridico()" class="modal-action modal-close waves-effect waves-red btn-flat modal-close "> Adicionar Tópico</a>
+      </div>
+      </div>
+    </div>
+
+    <div id="modalAnexo" class="modal">
+      <div class="modal-content">
+      <h4 style="color: black;" class="centered">Novo Anexo</h4>
+      <li class="divider"></li>
+      <div class="container">
+        <div class="row">
+          <div class="col s12">
+            <div class='input-field'>
+              <br>
+              <form name="form">
+                <div class="button" class="button-add" ngf-select ng-model="file" name="file" ngf-pattern="'application/pdf'"
+                  ngf-accept="'application/pdf'" ngf-max-size="10MB"><img src="assets/img/file.png" class="imgFormCentralizadaConteudo"></div>
+              </form>
+              <br>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer ">
+        <div>
+          <a class="modal-action modal-close waves-effect waves-green btn-flat modal-close" ng-click="submit()" >Adicionar Anexo</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="modalData" class="modal">
+      <div class="modal-content">
+      <h4 style="color: black;" class="centered">Novo Alarme</h4>
+      <li class="divider"></li>
+      <div class="container">
+        <div class="row">
+
+          <br>
+          <h5 style="color: black;" class="centered">Data</h5>
+          <div class="col s12">
+            <div class='input-field'>
+                <input type='date' placeholder="Dia do alarme"class="datepicker center-align" ng-model="alarm.data" name="nome" class="validate"   ng-required="true"/>
+            </div>
+          </div>
+
+            <br>
+            <h5 style="color: black;" class="centered">Horário</h5>
+            <div class="col s12">
+                <div class='input-field'>
+                    <input type='time' class="center-align" ng-model="alarm.horary" name="nome" class="validate"   ng-required="true"/>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer ">
+        <div>
+          <a class="modal-action modal-close waves-effect waves-green btn-flat modal-close" ng-click="addAlarme()"  >Adicionar Alarme</a>
+        </div>
+      </div>
+    </div>
+
+<script>
+$(document).ready(function(){
+    $(".modal").modal();
+});
+
+$(document).ready(function(){
+$('.modal-close').modal('close');
+});
+
+$(document).ready(function(){
+   $('.dropdown-button').dropdown();
+});
+$('.datepicker').pickadate({
+      selectMonths: true,//Creates a dropdown to control month
+      selectYears: 15,//Creates a dropdown of 15 years to control year
+      // The title label to use for the month nav buttons
+              labelMonthNext: 'Próximo Mês',
+              labelMonthPrev: 'Mês Anterior',
+
+      // The title label to use for the dropdown selectors
+              labelMonthSelect: 'Selecione um mês',
+              labelYearSelect: 'Selecione um ano',
+
+      // Months and weekdays
+              monthsFull: [ 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro' ],
+        monthsShort: [ 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez' ],
+        weekdaysFull: [ 'Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado' ],
+        weekdaysShort: [ 'Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab' ],
+
+      // Materialize modified
+              weekdaysLetter: [ 'D', 'S', 'T', 'Q', 'Q', 'S', 'S' ],
+
+      // Today and clear
+              today: 'Hoje',
+        clear: 'Limpar',
+        close: 'Fechar',
+        onSet: function( arg ){
+                if ( 'select' in arg ){ //prevent closing on selecting month/year
+                    this.close();
+                }
+            }
+      });
+</script>

@@ -1,0 +1,45 @@
+<div style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; background: #eeeeee ;">
+<div class="section"></div>
+<div class="section"></div>
+<div class="section"></div>
+
+    <center>
+      <img class="responsive-img" src="assets/img/logo-teste.png" />
+      <div class="section"></div>
+
+      <div class="container" >
+        <div class="z-depth-1 row camposBox" >
+          <form class="col s12">
+            <div class='row'>
+              <div class='input-field col s12'>
+                <input type='text'ng-model="usuario.login"/>
+                <label >Usuário</label>
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='input-field col s12'>
+                <input  type='password'  ng-model="usuario.password"/>
+                <label>Senha</label>
+              </div>
+              <label class="esquecerSenha">
+								<a href=''><b>Esqueceu sua senha?</b></a>
+							</label>
+            </div>
+
+            <br />
+            <center>
+              <div class='row'>
+                <button type='button' ng-click="logIn()" id="login-button" class='col s12 btn btn-large waves-effect btnLogin'>Login</button>
+              </div>
+            </center>
+          </form>
+
+          <h5 ng-if="userFail" style="color: black;">Usuário/ Senha Inválidos </h5> <!-- TALES FAZ ALGO BONITO -->
+        </div>
+      </div>
+    </center>
+
+    <div class="section"></div>
+    <div class="section"></div>
+</div>

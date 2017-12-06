@@ -1,0 +1,203 @@
+<div class="scrollBarCadastroUser" style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; background: #eeeeee ;">
+<div data-ng-include="'views/components/navbar.html'"> </div>
+
+<div class="center-align paddingTopContainer">
+<h4 style="color:black;"><img class="" src="/assets/img/iconesPagina/chat32.png" alt="..."> COMUNICAÇÃO</a></h4>
+</div>
+
+  <div class="TopicoPaddingTop">
+    <div class="center-top ">
+      <h4 href="#" class="brand-logo center" style="color:black;">{{ nameTopico }}</h4>
+    </div>
+  </div>
+
+  <div class="comunicationContainer">
+    <div class="row">
+      <div class="col s3">
+          <div class="z-depth-1 row boxContentTelaComunicacao">
+              <ul class="nav">
+                      <li class="nav-header">
+                          <div class="input-group">
+                                <nav>
+                                  <div class="nav-wrapper searchBarColor telaComunicacaoBTN">
+                                    <form>
+                                      <div class="input-field ">
+                                          <input  id="search" type="search" required>
+                                          <label for="search" ><i class="material-icons">search</i></label>
+                                          <i class="material-icons">close</i>
+                                      </div>
+                                    </form>
+                                  </div>
+                                </nav>
+                          </div>
+                      </li>
+                      <br>
+                      <div ng-repeat="topico in topicos | filter:search as results">
+                        <a class="waves-effect waves-light btn telaComunicacaoBTN" ng-click="topicoAtual(topico)" style="color:white;">{{ topico.name }}</a>
+                        <br><br>
+                      </div>
+
+                      <li class="nav-header" >
+                          <div class="input-group">
+                            <div class="btnAndSearchBar">
+                                  <a data-target="modalTopico" id="newTopicoBtn" ng-required="true" class="waves-effect waves-light btn telaComunicacaoBTN" ><img class="imgCentered" src="/assets/img/add32.png" alt="..."> CRIAR TÓPICO</a>
+                              </div>
+                          </div>
+                      </li>
+                      <br>
+                  </ul>
+          </div>
+        </div>
+<div class="col s9" style="padding:0 50px">
+  <div class="" >
+    <div class="" >
+      <div class="panel" style="background-color: white; padding: 0 0 0 30px;" >
+          <div id="demo-chat-body" class="collapse in"  ng-show="hideChat">
+              <div class="nano has-scrollbar" style=" height:350px " >
+                  <div class="nano-content pad-all" tabindex="0">
+                    <div class="panel-body">
+                      <ul class="media-list" ng-repeat="mensagem in mensagens">
+                        <li class="media">
+                            <div class="media-body">
+                              <div class="media">
+                                <div class="container">
+                                  <div class="row">
+                                    <div class="col s12">
+                                      <div class="col s2 pull-s3">
+                                        <img src="{{ mensagem.user.image_path }}" alt="Profile Picture" class="circularChat responsive-img ">
+                                      </div>
+                                      <div class="col s10 pull-s3">
+                                        <h6 style="color:black;"><b>{{ mensagem.user.name }} - {{ usuarioAtual.user.email }} | </b> {{ mensagem.text.date }} </h6>
+                                      </div>
+                                      <div class="col s10 pull-s2 quebrarLinha">
+                                        <h6 class="left-align" style="color:grey;">{{ mensagem.text.text }}</h6>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                          </div>
+                        </div>
+
+                      <div class="nano-pane"><div class="nano-slider" style="height: 141px; transform: translate(0px, 0px);"></div></div></div>
+
+                      <!--Widget footer-->
+                      <div class="panel-footer">
+                        <div class="row" >
+                          <div class="col s12" >
+                            <div class="col s10">
+                                <input type="text" ng-model="mensagem" placeholder="Escreva algum comentario" class="form-control" id="campoMensagem">
+                            </div>
+                            <div class="col s2" style="padding-left:40px!important;">
+                          <button class="btn btn-primary btn-block btnChat" ng-click="dataAtual(); addMensagem();" type="submit">Enviar</button>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+        </div>
+      </div>
+  </div>
+  </div>
+  <div>
+</div>
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+</div>
+
+<div id="modalTopico" class="modal modalInFront">
+  <div class="modal-content">
+    <div class="container">
+        <div class="row">
+          <h4 style="color: black;" class="centered">Novo Tópico</h4>
+          <li class="divider"></li>
+          <div class="col s12">
+            <form name="contatoForm">
+              <div class='input-field'>
+                  <input type='text' class="center-align" id="campoTopico" ng-model="communication.name" class="form-control" ng-required="true" placeholder="Nome do tópico"/>
+              </div>
+            </form>
+
+
+            <h5 style="color: black;" class="centered">Grupos</h5>
+            <li class="divider"></li>
+
+            <nav class="nav-wrapper userFormSearchBar">
+                <div class="input-field">
+                    <input id="searchGrupo" ng-model="searchGrupo" name="searchGrupo" placeholder="Nome" type="search" required>
+                    <label for="searchGrupo"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                </div>
+            </nav>
+
+             <a ui-sref="comunicacao" ng-click="adicionarGrupos()" class="waves-effect waves-light btn btnAdicionarUser">Adicionar Todos os grupos</a>
+             <br><br><br>
+
+              <ul class="collection scrollBarCadastroUser" ng-repeat="grupo in grupos | filter:searchGrupo as results">
+                <li class="collection-item avatar">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col s12">
+
+                        <div class="col s8 pull-s3">
+                            <span class="title">{{ grupo.group.name }}</span> </br>
+                        </div>
+
+                        <div class="col s4 push-s1 ">
+                          <a ui-sref="comunicacao" ng-click="getSelect(grupo)" class="waves-effect waves-light btn btnAdicionarUser">Adicionar</a>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="modal-footer modalInFront">
+    <div>
+    <a id="modalTopico" ng-click="addTopico()" class="modal-action modal-close waves-effect waves-red btn-flat modal-close "> Adicionar Tópico</a>
+  </div>
+  </div>
+<script >
+
+$(document).ready(function(){
+    $(".modal").modal();
+});
+
+$(document).ready(function(){
+$('.modal-close').modal('close');
+});
+
+function dataHoje() {
+    var data = new Date();
+    var dia = data.getDate();
+    var mes = data.getMonth() + 1;
+    if (mes < 10) {
+       mes = "0" + mes;
+   }
+   var ano = data.getFullYear();
+   var horas = new Date().getHours();
+   if (horas < 10) {
+       horas = "0" + horas;
+   }
+   var minutos = new Date().getMinutes();
+   if (minutos < 10) {
+       minutos = "0" + minutos;
+   }
+   var result = dia+"/"+mes+"/"+ano+" - "+horas + "h" + minutos;
+   return result;
+}
+$('.time-label').html(dataHoje());
+</script>

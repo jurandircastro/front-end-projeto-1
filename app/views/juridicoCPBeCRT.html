@@ -1,0 +1,191 @@
+<div class="scrollBarCadastroUser" style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; background: #eeeeee ;">
+<div data-ng-include="'views/components/navbar.html'"> </div>
+
+<div class="center-align paddingTopContainer">
+<h4 style="color:black;"><img class="" src="/assets/img/iconesPagina/juridico32.png" alt="..."> JURÍDICO</a></h4>
+</div>
+
+<div class="paddingTopContainerGestao containerToLeft">
+  <div class="row " >
+    <div class="col s12">
+      <div class="col s3">
+        <div class="z-depth-1 row boxContentTelaJuridico scrollBar ">
+            <div class="container">
+              <div class="row">
+              <div class="col s12">
+                <ul class="nav">
+                  <li class="nav-header " >
+                      <div class="input-group">
+                            <nav>
+                              <div class="nav-wrapper searchBarColor telaJuridicoBTN">
+                                <form>
+                                  <div class="input-field ">
+                                      <input  id="search" type="search" required>
+                                      <label for="search" ><i class="material-icons">search</i></label>
+                                      <i class="material-icons">close</i>
+                                  </div>
+                                </form>
+                              </div>
+                            </nav>
+                      </div>
+                  </li>
+
+                    <div ng-repeat="topico in topicos | filter:search as results">
+                      <br>
+                      <a class="waves-effect waves-light btn telaJuridicoBTN" ng-click="topicoAtual(topico); click();" style="color:white;">{{ topico.name }}</a>
+                    </div>
+                    <br>
+                    <a ui-sref="juridicoCPBeCRT" class="waves-effect waves-light btn telaJuridicoBTN" ng-click="topicoAtual(topico)" style="color:white;">CPB e CRT</a>
+
+                    <li class="nav-header" >
+                        <div class="input-group">
+                          <br>
+                          <a data-target="modalJuridico" id="newTopicoBtn" ng-required="true" class="waves-effect waves-light btn telaJuridicoBTN"><img class="imgCentered" src="/assets/img/add32.png" alt="...">Adicionar</a>
+                        </div>
+                    </li>
+                    <br>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div ng-show="juridicoCheck col s9">
+        <div class="col s9">
+        <table class="files-table" style="table-layout: fixed; width: 100%; margin-left:-30px!important; ">
+        <col style="width:40%">
+        <col style="width:20%">
+        <col style="width:20%">
+        <col style="width:20%">
+
+          <tr >
+              <th data-field="titulo"><a  class="waves-effect waves-light btn telaJuridicoTopicosBTN" style=" bottom:15px!important;"> TÍTULO</a></th>
+              <th data-field="tipo"><a class="waves-effect waves-light btn telaJuridicoTopicosBTN " style="bottom:15px!important;"> CPB</a></th>
+              <th data-field="obs"><a class="waves-effect waves-light btn telaJuridicoTopicosBTN"style="bottom:15px!important;"> CRT</a></th>
+              <th data-field="anexo"><a  class="waves-effect waves-light btn telaJuridicoTopicosBTN"style="bottom:15px!important;">VIGÊNCIA</a></th>
+          </tr>
+          <tbody>
+
+            <tr ng-repeat="juridico in cpb_crt">
+
+              <td><a class="waves-effect waves-light btn btnItensJuridico">{{ juridico.name }}</a></td>
+              <td><a class="waves-effect waves-light btn btnItensJuridico">{{ juridico.CPB }}</a></td>
+              <td><a class="waves-effect waves-light btn btnItensJuridico">{{ juridico.CRT }}</a></td>
+              <td><a class="waves-effect waves-light btn btnItensJuridico">{{ juridico.validity }}</a></td>
+
+            </tr>
+          <th>
+            <a data-target="modalJuridicoItensCPBeCRT" id="Titulo" class="waves-effect waves-light btn btnItensJuridico"> + Adicionar Novo</a>
+          </th>
+          </tbody>
+
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+</div>
+
+<div id="modalJuridico" class="modal modalInFront">
+  <div class="modal-content">
+    <div class="container">
+        <div class="row">
+          <h4 style="color: black;" class="centered">Novo Tópico</h4>
+          <li class="divider"></li>
+          <div class="col s12">
+            <div class='input-field'>
+                <input type='text' ng-model="topicoJuridico.name" class="center-align" class="form-control" ng-required="true" placeholder="Nome do tópico"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer modalInFront">
+      <div>
+      <a id="modalTopico" ng-click="addTopico()" class="modal-action modal-close waves-effect waves-red btn-flat modal-close"> Adicionar Tópico</a>
+    </div>
+    </div>
+  </div>
+
+<div id="modalJuridicoItensCPBeCRT" class="modal modalInFront">
+  <div class="modal-content">
+    <div class="container">
+        <div class="row">
+          <h4 style="color: black;" class="centered">Novo Item</h4>
+          <li class="divider"></li>
+          <div class="col s12">
+            <div class='input-field'>
+                <input type='text' class="center-align" ng-model="juridico.name" class="form-control" ng-required="true" placeholder="Título"/>
+            </div>
+          </div>
+          <div class="col s12">
+            <div class='input-field'>
+                <input type='text' class="center-align" ng-model="juridico.cpb" class="form-control" ng-required="true" placeholder="CPB"/>
+            </div>
+          </div>
+          <div class="col s12">
+            <div class='input-field'>
+                <input type='text' class="center-align" ng-model="juridico.crt" class="form-control" ng-required="true" placeholder="CRT"/>
+            </div>
+          </div>
+          <div class="col s12">
+            <div class='input-field'>
+              <input type="date" placeholder="Vigência" ng-model="juridico.validity" class="datepicker center-align" ng-required="true">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer modalInFront">
+      <div>
+      <a id="modalTopico" ng-click="addCPBeCRT()" class="modal-action modal-close waves-effect waves-red btn-flat modal-close "> Adicionar Item</a>
+    </div>
+    </div>
+  </div>
+<script>
+$(document).ready(function(){
+  $(".modal").modal();
+});
+
+$(document).ready(function(){
+$('.modal-close').modal('close');
+});
+$('.datepicker').pickadate({
+    selectMonths: true,//Creates a dropdown to control month
+    selectYears: 15,//Creates a dropdown of 15 years to control year
+    // The title label to use for the month nav buttons
+            labelMonthNext: 'Próximo Mês',
+            labelMonthPrev: 'Mês Anterior',
+
+    // The title label to use for the dropdown selectors
+            labelMonthSelect: 'Selecione um mês',
+            labelYearSelect: 'Selecione um ano',
+
+    // Months and weekdays
+            monthsFull: [ 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro' ],
+      monthsShort: [ 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez' ],
+      weekdaysFull: [ 'Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado' ],
+      weekdaysShort: [ 'Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab' ],
+
+    // Materialize modified
+            weekdaysLetter: [ 'D', 'S', 'T', 'Q', 'Q', 'S', 'S' ],
+
+    // Today and clear
+            today: 'Hoje',
+      clear: 'Limpar',
+      close: 'Fechar',
+      onSet: function( arg ){
+              if ( 'select' in arg ){ //prevent closing on selecting month/year
+                  this.close();
+              }
+          }
+    });
+</script>

@@ -1,0 +1,136 @@
+<div class="scrollBarCadastroUser" style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; background: #eeeeee ;">
+<div data-ng-include="'views/components/navbar.html'"> </div>
+
+<div class="center-align paddingTopContainer">
+<h4 style="color:black;"><img class="" src="/assets/img/iconesPagina/like32.png" alt="..."> APROVAÇÃO</a></h4>
+</div>
+
+<div class="row paddingTopContainer toLeftAprovacao">
+  <div class="col s12">
+    <div class="col s8 pull-s4">
+      <a class="waves-effect waves-light btn telaConteudoTopicosBTN" style="width:810px;"> TÍTULO</a>
+    </div>
+
+    <div class="col s2 pull-s1">
+      <a class="waves-effect waves-light btn telaConteudoTopicosBTN" style="width:283px;"> VERSÃO FINAL</a>
+    </div>
+  </div>
+</div>
+<div  ng-repeat="aprovacao in aprovacaos">
+<div class="row toLeftAprovacao">
+  <div class="col s12">
+    <div class="col s8 pull-s4 ">
+      <div class=" toRightGestao ">
+        <div class="col s12 ">
+          <a class="waves-effect waves-light btn btnItensConteudo"  style="width:810px;">{{ aprovacao.name }}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s2 pull-s1 ">
+      <div class=" toRight1Gestao">
+          <div class="col s1" >
+                <a data-target="modalAtualizarArquivo" ng-show="{{!aprovacao.path}}" ng-click="aprovacaoAtual(aprovacao)" class="waves-effect waves-light btn btnItensConteudo" style="width:90px!important;"><img class="imgCentered" src="/assets/img/iconesProjetos/clip24.png" alt="..."></a>
+          </div>
+
+          <div class="col s1 push-s6 toLeftDownloadAprovação">
+            <a class="waves-effect waves-light btn btnItensConteudo"  target="_blank"  type="application/octet-stream"  id="downloadLink" href="http://tve-manager-backend.jelasticlw.com.br/{{aprovacao.path}}" style="width:90px!important;" download><img class="imgCentered" src="/assets/img/iconesProjetos/arrow24.png" alt="..."></a>
+          </div>
+
+          <div class="col s1 push-s6 toLeftDownloadAprovação">
+            <a data-target="modalRemoverArquivo" class="waves-effect waves-light btn btnItensConteudo IconePraDireita" ng-click="aprovacaoAtual(aprovacao)" style="width:90px!important;"><img class="imgCentered" src="/assets/img/iconesProjetos/delete24.png" alt="..."></a>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="row toLeftAprovacao">
+  <div class="col s12">
+    <div class="col s8 pull-s4 ">
+      <div class=" toRightGestao ">
+        <div class="col s12 ">
+          <a data-target = "modalArquivo" class="waves-effect waves-light btn btnItensConteudo"  style="width:810px;"> + Adicionar Novo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+<div id="modalArquivo" class="modal">
+  <div class="modal-content">
+  <h4 style="color: black;" class="centered">Novo Arquivo</h4>
+  <li class="divider"></li>
+  <div class="container">
+    <div class="row">
+      <br>
+      <div class='input-field'>
+          <img src="assets/img/file.png" class="imgFormCentralizadaConteudo" method="post">
+      </div>
+      <br>
+      <div class="col s12">
+          <div class='input-field'>
+              <input type='text' class="center-align" name="nome" class="validate" ng-model="NovoAprovacao.name" placeholder="Nome do arquivo" ng-required="true"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer ">
+    <div>
+      <a class="modal-action modal-close waves-effect waves-green btn-flat modal-close" ng-click="novoAprovacao()" >Adicionar arquivo</a>
+    </div>
+  </div>
+</div>
+
+<div id="modalAtualizarArquivo" class="modal">
+  <div class="modal-content">
+  <h4 style="color: black;" class="centered">Selecionar Arquivo</h4>
+  <li class="divider"></li>
+  <div class="container">
+    <div class="row">
+      <div class="col s12">
+        <div class='input-field'>
+          <br>
+          <form name="form">
+            <div class="button" class="button-add" ngf-select ng-model="file" name="file" ngf-pattern="'application/pdf'"
+              ngf-accept="'application/pdf'" ngf-max-size="10MB"><img src="assets/img/file.png" class="imgFormCentralizadaConteudo"></div>
+          </form>
+          <br>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer ">
+    <div>
+      <a class="modal-action modal-close waves-effect waves-green btn-flat modal-close" ng-click="submit()"  >Selecionar Arquivo</a>
+    </div>
+  </div>
+</div>
+
+<div id="modalRemoverArquivo" class="modal modalRemoverConteudo">
+  <div class="modal-content">
+    <h5 class="center-align"style="color:black;">Deseja excluir permanentemente esse arquivo?</h5>
+    <li class="divider"></li>
+  </div>
+  <div class="modal-footer">
+    <div>
+    <a id="RemoverConteudoBTN" class="modal-action modal-close waves-effect waves-red btn-flat modal-close removerBtn" ng-click="deleteAprovacaoFiles()">Remover Arquivo</a>
+    <a class="modal-action modal-close waves-effect waves-green btn-flat ">Cancelar</a>
+  </div>
+  </div>
+</div>
+<script>
+$(document).ready(function(){
+    $(".modal").modal();
+});
+
+$(document).ready(function(){
+$('.modal-close').modal('close');
+});
+</script>

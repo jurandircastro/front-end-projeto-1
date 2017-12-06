@@ -1,0 +1,111 @@
+<div class="scrollBarCadastroUser" style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; background: #eeeeee ;">
+<div data-ng-include="'views/components/navbar.html'"> </div>
+
+<div class="center-align paddingTopContainer">
+<h4 style="color:black;"><img class="" src="/assets/img/iconesPagina/tv32.png" alt="..."> CONTEÚDO</a></h4>
+</div>
+
+<div class="container paddingTopContainer">
+  <div class="row">
+    <div class="col s12 ">
+      <div class="col s4 push-s2">
+          <a ui-sref="conteudo" id="btnOptions" class="waves-effect waves-light btn telaConteudoBTN bordaBTN"> ROTEIROS</a>
+      </div>
+      <div class="col s4 push-s1">
+        <a ui-sref="conteudoVideo" id="btnOptions"   class="waves-effect waves-light btn telaConteudoBTN"> VÍDEOS</a>
+      </div>
+      <div class="col s4 ">
+        <a ui-sref="conteudoAudio" id="btnOptions" style="background: #fbeb29!important;" class="waves-effect waves-light btn telaConteudoBTN"> ÁUDIOS</a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+<div class="container comunicationContainer">
+  <div class="row">
+    <div class="col s12">
+      <div class="col s1 pull-s2">
+        <div class="z-depth-1 row boxContentChatConteudo  scrollBar ">
+            <div class="container">
+              <div class="row">
+              <div class="col s12 pull-s1">
+               <ul>
+                   <li ng-repeat="song in songs">
+                      <img src="assets/img/audio.png" class="imgFormCentralizadaAudioChat" method="post">
+                      <br><br><br><br>
+                       <a class="waves-effect waves-light btn telaJuridicoTopicosBTN" style="width: 770px!important;"> {{ song.title }}</a>
+                       <div style="padding-top: 30px!important;">
+                       <table class="responsive-table" >
+                         <tr>
+                           <th data-field="titulo"><a class="waves-effect waves-light btn telaJuridicoTopicosBTN" style="width: 250px!important; right:5px!important;"  play-all="songs"> PLAY</a></th>
+                           <th data-field="titulo"><a class="waves-effect waves-light btn telaJuridicoTopicosBTN" style="width: 250px; right:5px!important;" pause-music> PAUSE</a></th>
+                           <th data-field="titulo"><a class="waves-effect waves-light btn telaJuridicoTopicosBTN" style="width: 250px; right:5px!important;" stop-music> STOP</a></th>
+                         </tr>
+                      </table>
+                     </div>
+                   </li>
+               </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<div class="col s8 push-s5 ">
+<div class="col s12" >
+  <div class="chatConteudoTamanho chatConteudoPraDireita" >
+    <div class="panel" style="width: 350px; background-color: white;" >
+        <div id="demo-chat-body" class="collapse in" >
+            <div class="nano has-scrollbar" style=" height:450px " >
+                <div class="nano-content pad-all" tabindex="0">
+                  <div class="panel-body">
+                    <ul class="media-list" ng-repeat="mensagem in mensagens">
+                      <li class="media">
+                          <div class="media-body">
+                            <div class="media">
+                              <div class="container">
+                                <div class="row">
+                                  <div class="col s12">
+                                    <div class="col s2 pull-s3">
+                                        <img src="{{ mensagem.user.image_path }}" alt="Profile Picture" class="circularChat responsive-img ">
+                                      </div>
+
+                                    <div class="col s10 pull-s1">
+                                        <h6 style="color:black;"><b>{{ mensagem.user.name }} - {{ usuarioAtual.user.email }} | </b><span class="pull-left time-label"></h6>
+                                      </div>
+                                      <div class="col s10 pull-s1 quebrarLinha">
+                                        <h6 class="left-align" style="color:grey;">{{ mensagem.text }}</h6>
+                                      </div>
+                                  </div>
+                                </div>
+                              </li>
+                            </ul>
+                        </div>
+                      </div>
+
+                    <div class="nano-pane"><div class="nano-slider" style="height: 141px; transform: translate(0px, 0px);"></div></div></div>
+
+                    <!--Widget footer-->
+                    <div class="panel-footer " style="width: 270px" >
+                      <div class="row">
+                        <div class="col s12">
+                          <div class="col s10">
+                              <input type="text" ng-model="mensagem" placeholder="Escreva algum comentario" class="form-control " id="campoMensagem">
+                          </div>
+                          <div class="col s2">
+                        <button  class="btn btn-primary btn-block btnChat" ng-click="addMensagem()" type="submit">Enviar</button>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      </div>
+    </div>
+</div>
+</div>
+<div>
+</div>
+</div>
+</div>
+</div>
+</div>

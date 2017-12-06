@@ -1,0 +1,121 @@
+<div class="scrollBarCadastroUser" style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; background: #eeeeee ;">
+<div data-ng-include="'views/components/navbar.html'"> </div>
+
+<div class="z-depth-1 row boxContent">
+  <div class="container">
+    <div class="row">
+    <div class="col s12">
+        <div class="col s4 pull-s2">
+          <p><b>Produtora: </b>{{project.producer_name}}</p>
+          <p><b>Data de Inicio: </b>{{project.start_date}}</p>
+          <p><b>Data de entrega: </b>{{project.end_date}}</p>
+        </div>
+        <div class="col s4 pull-s1">
+          <div>
+          <p><b>Síntese: </b>{{project.description}}</p>
+          </div>
+        </div>
+        <div class="col s4 push-s3 paddingTopBtnProjetos">
+          <p>
+            <div class="btn-file ">
+              <a id="newFileBtn" class="waves-effect waves-light btn addFileBTN"><img class="imgCentered " src="/assets/img/nuvem.png" alt="...">  Arquivos</a>
+            </div>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+      <div class="row">
+          <div class="col s12">
+            <br>
+            <div class="col s4">
+              <div class="card cardWidthAndHeight cardsToLeft" style="background-color: #273140!important;">
+                <div class="card-content cardName">
+                    <img src="../assets/img/navbar-dropdown/user24.png" class="responsive-img"><span class="card-title activator white-text "> Usuários</span>
+                </div>
+
+                <div class="card sticky-action">
+                  <div class="card-image waves-effect waves-block waves-light">
+                  <img ui-sref="grupos" class="cardIMGProjeto" src="assets/img/users.jpg">
+                </div>
+               </div>
+            </div>
+          </div>
+
+            <div class="col s4">
+              <div class="card cardWidthAndHeight cardsInTheMiddle" style="background-color: #273140!important;">
+                <div class="card-content cardName">
+                  <img src="../assets/img/navbar-dropdown/gestao24.png" class="responsive-img"><span class="card-title activator white-text"> Gestão</span>
+                </div>
+
+                <div class="card sticky-action">
+                  <div class="card-image waves-effect waves-block waves-light">
+                  <img ui-sref="gestao" class="cardIMGProjeto" src="assets/img/gestao.jpg">
+                </div>
+               </div>
+            </div>
+          </div>
+
+          <div class="col s4 col-md-offset-2">
+            <div class="card cardWidthAndHeight cardsToRight" style="background-color: #273140!important;">
+              <div class="card-content cardName">
+                <img src="../assets/img/navbar-dropdown/like24.png" class="responsive-img"><span class="card-title activator white-text"> Aprovação</span>
+              </div>
+
+              <div class="card sticky-action">
+                <div class="card-image waves-effect waves-block waves-light">
+                <img ui-sref="aprovacao" class="cardIMGProjeto" src="assets/img/aprovacao.jpg">
+              </div>
+             </div>
+          </div>
+        </div>
+
+        <div class="col s4 ">
+          <div class="card cardWidthAndHeight cardsToLeft" style="background-color: #273140!important;">
+            <div class="card-content cardName">
+              <img src="../assets/img/navbar-dropdown/chat24.png" class="responsive-img"><span class="card-title activator white-text"> Comunicação</span>
+            </div>
+
+            <div class="card sticky-action">
+              <div class="card-image waves-effect waves-block waves-light">
+              <img ui-sref="comunicacao" class="cardIMGProjeto" src="assets/img/comunicacao.png">
+            </div>
+           </div>
+        </div>
+      </div>
+
+        <div class="col s4">
+          <div class="card cardWidthAndHeight cardsInTheMiddle" style="background-color: #273140!important;">
+            <div class="card-content cardName">
+              <img src="../assets/img/navbar-dropdown/tv24.png" class="responsive-img"><span class="card-title activator white-text"> Conteúdo</span>
+            </div>
+
+            <div class="card sticky-action">
+              <div class="card-image waves-effect waves-block waves-light">
+              <img ui-sref="conteudo" class="cardIMGProjeto" src="assets/img/conteudo.png">
+            </div>
+           </div>
+        </div>
+      </div>
+
+        <div class="col s4">
+          <div class="card cardWidthAndHeight cardsToRight" style="background-color: #273140!important;">
+            <div class="card-content cardName">
+              <img src="../assets/img/navbar-dropdown/jur24.png" class="responsive-img"><span class="card-title activator white-text"> Jurídico</span>
+            </div>
+
+            <div class="card sticky-action">
+              <div class="card-image waves-effect waves-block waves-light">
+              <img ui-sref="juridico" class="cardIMGProjeto" src="assets/img/juridico.jpg">
+            </div>
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div>

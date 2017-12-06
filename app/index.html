@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html ng-app="TVeManager">
+  <head>
+    <meta charset="utf-8">
+    <title>GAV</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="bower_components/angular-gantt/assets/angular-gantt.css"/>
+    <link rel="stylesheet" href="bower_components/angular-gantt/assets/angular-gantt-plugins.css"/>
+    <link type="text/css" rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css"/>
+
+
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  </head>
+  <body>
+    <script src="bower_components/pdfjs-dist/build/pdf.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/materialize/dist/js/materialize.min.js"></script>
+    <script src="bower_components/angular-base64-upload/src/angular-base64-upload.js"></script>
+    <script src="bower_components/angular-file-upload/dist/angular-file-upload.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+
+    <script src="tvmanager.js"></script>
+  	<script src="routes.js"></script>
+    <script src="constants.js"></script>
+
+    <script src="services/auth.service.js"></script>
+    <script src="services/projeto.service.js"></script>
+    <script src="services/grupos.service.js"></script>
+    <script src="services/comunicacao.service.js"></script>
+  	<script src="services/localStorage.service.js"></script>
+    <script src="services/gestao.service.js"></script>
+    <script src="services/conteudo.service.js"></script>
+    <script src="services/conteudoAudio.service.js"></script>
+    <script src="services/conteudoVideo.service.js"></script>
+    <script src="services/juridico.service.js"></script>
+    <script src="services/aprovacao.service.js"></script>
+
+    <script src="controllers/auth.controller.js"></script>
+    <script src="controllers/projeto.controller.js"></script>
+    <script src="controllers/grupos.controller.js"></script>
+    <script src="controllers/comunicacao.controller.js"></script>
+    <script src="controllers/gestao.controller.js"></script>
+    <script src="controllers/conteudo.controller.js"></script>
+    <script src="controllers/conteudoAudio.controller.js"></script>
+    <script src="controllers/conteudoVideo.controller.js"></script>
+    <script src="controllers/menu.controller.js"></script>
+    <script src="controllers/navbar.controller.js"></script>
+    <script src="controllers/conteudoChat.controller.js"></script>
+    <script src="controllers/conteudoAudioChat.controller.js"></script>
+    <script src="controllers/conteudoVideoChat.controller.js"></script>
+    <script src="controllers/aprovacao.controller.js"></script>
+    <script src="controllers/juridico.controller.js"></script>
+    <script src="controllers/juridicoCPB.controller.js"></script>
+
+    <script src="bower_components/ng-file-upload-shim/ng-file-upload-shim.min.js"></script> <!-- for no html5 browsers support -->
+    <script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+
+    <script src="bower_components/angular-gantt/assets/angular-gantt.js"></script>
+    <script src="bower_components/angular-gantt/assets/angular-gantt-plugins.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/moment/locale/de.js"></script>
+    <script src="bower_components/angular-moment/angular-moment.js"></script>
+
+
+    <script src="bower_components/videogular/videogular.js"></script>
+    <script src="bower_components/videogular-controls/vg-controls.js"></script>
+    <script src="bower_components/videogular-overlay-play/vg-overlay-play.js"></script>
+    <script src="bower_components/videogular-poster/vg-poster.js"></script>
+    <script src="bower_components/videogular-buffering/vg-buffering.js"></script>
+    <script src="bower_components/angular-pdf/dist/angular-pdf.js"></script>
+    <script src="bower_components/angular-pdf-viewer/dist/angular-pdf-viewer.min.js"></script>
+    <script src="bower_components//angular-soundmanager2/dist/angular-soundmanager2.js"></script>
+
+    <div ui-view></div>
+
+  </body>
+</html>
